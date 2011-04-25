@@ -77,7 +77,10 @@ public class CFGNode {
 
         @Override
 	public String toString() {
-	    return type.toString() + " " + id.toString();
+            if (type == OperandType.nodeval)
+                return "$" + Integer.toString(((CFGNode)id).number);
+            else
+                return type.toString() + " " + id.toString();
 	}
 
 	public OperandType type;
