@@ -24,30 +24,45 @@
         </node>
     </pattern>
 
-    <start state="Unlocked" />
-    <transition from="Unlocked[A]" by="lock[A]" to="Locked[A]" />
-    <transition from="Locked[A]" by="unlock[A]" to="Unlocked[A]" />
-    <transition from="Locked[A]" by="safe-unlock[A]" to="Unlocked[A]" />
+    <start state="U" />
+    <transition from="U[A]" by="lock[A]" to="L[A]" />
+    <transition from="L[A]" by="lock[B]" to="L[A]" />
+    <transition from="L[A]" by="lock[B]" to="LL[A][B]" />
+    <transition from="L[A]" by="unlock[A]" to="U[A]" />
+    <transition from="L[A]" by="safe-unlock[A]" to="U[A]" />
+    <transition from="LL[A][B]" by="unlock[B]" to="" />
+    <transition from="LL[A][B]" by="safe-unlock[B]" to="" />
 
-    <error from="Unlocked[A]" by="unlock[A]"
-           desc="double unlock"
-           level="0"
-           entry="Function entered with mutex unlocked."
-           begin="Here the mutex is unlocked."
-           propag="not affected"
-           end="Unlocking twice" />
-    <error from="Locked[A]" by="lock[A]"
-           desc="double lock"
-           level="0"
-           entry="Function entered in mutex locked."
-           begin="Here the mutex is locked."
-           propag="not affected"
-           end="Locking twice." />
-    <error from="Locked[*]" by=""
-           desc="Leaving function with mutex locked."
-           level="0"
-           entry="The function entered with mutex locked."
-           begin="The mutex is locked here."
-           propag="not affected"
-           end="Leaving locked." />
+    <error  from="U[A]" by="unlock[A]"
+            desc="double unlock"
+            level="0"
+            entry="The function called in unlocked state."
+            begin="The lock is unlocked here."
+            propag="not affected ==> the lock is still unlocked."
+            end="The lock is unlocked and here is an attempt to unlock it twice." />
+
+    <error  from="L[A]" by="lock[A]"
+            desc="double lock"
+            level="0"
+            entry="The function called in locked state."
+            begin="The lock is locked here."
+            propag="not affected ==> the lock is still locked."
+            end="The lock is locked and here is an attempt to lock it twice." />
+
+    <error  from="LL[A][B]" by="unlock[A]"
+            desc="cross locking"
+            level="2"
+            entry="The function called in locked order lock(A) lock(B)."
+            begin="The locked order is now lock(A) lock(B) - here locking B."
+            propag="not affected ==> locked order is still lock(A) lock(B)"
+            end="The locked order lock(A) lock(B), but now unlocking A (e.i. before
+                 B) ==> cross locking." />
+
+    <error  from="L[*]" by=""
+            desc="leaving function in locked state"
+            level="1"
+            entry="The function called in locked state."
+            begin="The lock is locked here."
+            propag="not affected ==> the lock is still locked."
+            end="Leaving function in locked state." />
 </automaton>
