@@ -1,10 +1,16 @@
 #include "mutex.h"
 
-int main()
+void foo()
 {
-    mutex m;
-    
-    error_t error = m.acquire();
-    error = m.release();
-    error = release(m);
+    mutex m1, m2;
+
+/*    acquire(m1);
+    acquire(m2);
+    release(m1);
+    release(m2);*/
+
+    m1.acquire();
+    m2.acquire();
+    m1.release();
+    m2.release();
 }

@@ -9,7 +9,13 @@ struct mutex
     error_t release();
 };
 
+inline error_t acquire(mutex & m)
+{
+    return m.acquire();
+}
+
 inline error_t release(mutex & m)
 {
     return m.release();
 }
+

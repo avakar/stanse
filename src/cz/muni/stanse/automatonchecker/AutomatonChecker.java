@@ -35,6 +35,9 @@ import org.dom4j.DocumentException;
 import org.dom4j.io.SAXReader;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import org.json.JSONException;
 
 /**
  * @brief Static checker which is able to detect locking problems, interrupts
@@ -141,6 +144,11 @@ final class AutomatonChecker extends cz.muni.stanse.checker.Checker {
             for (AutomatonState state : pattern.getProcessedAutomataStates()){
                 sb.append("[").append(state.toString()).append("]");
             }
+            sb.append("\\n");
+            for (ErrorRule e : pattern.getErrorRules()) {
+                sb.append("[").append(e.toString()).append("]");
+            }
+            sb.append("\\n");
             sb.append(pattern.getCFGreferenceNode());
             sb.append("\"]").append(";\n");
             patternids.put(pattern, patternids.size());
@@ -169,9 +177,24 @@ final class AutomatonChecker extends cz.muni.stanse.checker.Checker {
                 }
             }
         }
-
         sb.append("}");
-        System.out.print(sb);
+
+        List<String> parserArgs = new ArrayList<String>();
+	parserArgs.add("/home/avakar/checkouts/stanse/dist/bin/showgraph.sh");
+	ProcessBuilder builder = new ProcessBuilder(parserArgs);
+	try {
+	    final Process p = builder.start();
+            p.getErrorStream().close();
+            p.getInputStream().close();
+
+            p.getOutputStream().write(sb.toString().getBytes());
+            p.getOutputStream().close();
+            p.waitFor();
+	} catch (IOException e) {
+	} catch (InterruptedException e) {
+	}
+        
+//        System.out.print(sb);
     }
 
     private CheckingResult
@@ -190,6 +213,7 @@ final class AutomatonChecker extends cz.muni.stanse.checker.Checker {
                                           internals.getNavigator(),
                                           internals.getStartFunctions());
 
+        dumpNodeLocationGraph(nodeLocationDictionary.values());
         monitor.phaseLog("processing automata states");
         final LinkedList<PatternLocation> progressQueue =
                 new LinkedList<PatternLocation>();
@@ -232,6 +256,7 @@ final class AutomatonChecker extends cz.muni.stanse.checker.Checker {
             }
         }
 
+        dumpNodeLocationGraph(nodeLocationDictionary.values());
         monitor.phaseLog("collecting false-positive detectors");
         final java.util.List<FalsePositivesDetector> detectors =
             FalsePositivesDetectorFactory.getDetectors(
