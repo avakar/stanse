@@ -13,13 +13,13 @@ final class ActionOpenSourceCodeFile extends javax.swing.AbstractAction {
         chooser.addChoosableFileFilter(new FileChooserFileFilter(
                 "C source files",cz.muni.stanse.utils.Make.linkedList("c")));
         chooser.addChoosableFileFilter(new FileChooserFileFilter(
-                "JSON CFG files",cz.muni.stanse.utils.Make.linkedList("cfg")));
+                "SIR files",cz.muni.stanse.utils.Make.linkedList("cfg", "sir")));
         chooser.addChoosableFileFilter(new FileChooserFileFilter(
                 "C++ source files",cz.muni.stanse.utils.Make.linkedList("cpp", "cc", "cxx")));
         chooser.addChoosableFileFilter(new FileChooserFileFilter(
                 "C/C++ source files",cz.muni.stanse.utils.Make.linkedList("c", "cpp", "cc", "cxx")));
         chooser.addChoosableFileFilter(new FileChooserFileFilter(
-                "All supported files",cz.muni.stanse.utils.Make.linkedList("c", "cpp", "cc", "cxx", "cfg")));
+                "All supported files",cz.muni.stanse.utils.Make.linkedList("c", "cpp", "cc", "cxx", "cfg", "sir")));
         if (chooser.showDialog(MainWindow.getInstance(),"Add") ==
                     javax.swing.JFileChooser.APPROVE_OPTION) {
             MainWindow.getInstance().getOpenedSourceFilesManager().

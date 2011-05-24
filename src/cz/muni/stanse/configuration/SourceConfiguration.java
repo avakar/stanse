@@ -113,7 +113,7 @@ public final class SourceConfiguration {
 		if (ext.equals("cpp") || ext.equals("cc") || ext.equals("cxx")
 			|| ext.equals("C"))
 		    result.add(new CppUnit(args));
-		else if (ext.equals("cfg"))
+		else if (ext.equals("cfg") || ext.equals("sir"))
 		    result.add(new CfgUnit(args));
 		else if (ext.equals("c"))
 		    result.add(new CUnit(args));
