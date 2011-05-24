@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<automaton>
+    <description name="Allocation checker"
+                 desc="Checks that allocated memory gets released" />
+
+    <pattern name="alloc">
+        <node type="assign">
+            <var target="P1" />
+            <node type="call">
+                <function>operator new</function>
+                <any/>
+            </node>
+        </node>
+    </pattern>
+
+    <pattern name="free">
+        <node type="call">
+            <function>__sir_cpp_delete</function>
+            <var name="P1"/>
+            <any/>
+        </node>
+    </pattern>
+
+    <start state="Released" />
+    <transition from="Released[A]" by="alloc[A]" to="Allocated[A]" />
+    <transition from="Allocated[A]" by="free[A]" to="Released[A]" />
+
+    <error from="Allocated[*]" by=""
+           desc="Leaving function while leaking memory."
+           level="0"
+           entry="The function entered with memory released."
+           begin="The memory is allocated here."
+           propag="not affected"
+           end="Leaving allocated." />
+</automaton>
