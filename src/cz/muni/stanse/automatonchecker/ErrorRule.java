@@ -71,6 +71,12 @@ final class ErrorRule {
         return XMLrule;
     }
 
+    @Override
+    public String toString()
+    {
+        return XMLrule.getPatternName() + automatonID.toString();
+    }
+
     private final XMLErrorRule XMLrule;
     private final SimpleAutomatonID automatonID;
 }

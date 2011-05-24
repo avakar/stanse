@@ -76,6 +76,10 @@ public final class InterproceduralCFGsNavigator implements CFGsNavigator {
     private final void build(final Collection<CFGHandle> CFGs,
                              final ElementCFGdictionary cfgDict) {
         for (final CFGHandle cfgh : CFGs) {
+            // Manually insert the start and end nodes
+            getBeginings().put(cfgh.getStartNode(), new HashSet<CFGNode>());
+            getEndings().put(cfgh.getEndNode(), new HashSet<CFGNode>());
+
             CFGTraversal.traverseCFGToBreadthForward(cfgh,cfgh.getStartNode(),
                 new CFGvisitor() {
                     @Override
