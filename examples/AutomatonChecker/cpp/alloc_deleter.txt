@@ -1,0 +1,4 @@
+def _ZN16discarder_faulty7discardEPi(p:this, p:data):
+    $0: __sir_cpp_delete_array(p:data, _ZdaPv)
+    $1: exit 0
+

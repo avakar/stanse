@@ -1,0 +1,21 @@
+def _Z4main():
+    $0: _ZN5mutexC1Ev(&l:m:0) | ->1 $9
+    $1: _ZN5mutex7acquireEv(&l:m:0) | ->1 $10
+    $2: assign &l:error:0, $1
+    $3: _ZN5mutex7releaseEv(&l:m:0) | ->1 $10
+    $4: assign &l:error:0, $3
+    $5: _Z7releaseR5mutex(&l:m:0) | ->1 $10
+    $6: assign &l:error:0, $5
+    $7: _ZN5mutexD1Ev(&l:m:0) | ->1 $9
+    $8: exit 0
+
+    $9: exit 1
+
+    $10: _ZN5mutexD1Ev(&l:m:0) | -> $9
+
+def _Z7releaseR5mutex(p:m):
+    $0: _ZN5mutex7releaseEv(p:m) | ->1 $2
+    $1: exit 0, $0
+
+    $2: exit 1
+

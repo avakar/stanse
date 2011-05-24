@@ -1,0 +1,23 @@
+This directory contains several (unreal) examples of faulty C++ programs.
+
+The alloc.cpp and alloc_deleter.cpp should be checked against alloc.xml;
+mutex.cpp and virtual.cpp against mutex.xml.
+Note that mutex.cpp and virtual.cpp both include mutex.h.
+
+I suggest that the reader browse the alloc.cpp file first
+as it contains useful comments.
+
+I've created a .sir file and a pretty-printed .txt file
+for each .cpp file. Note that these files are there for your viewing
+pleasure only; they are NOT necessary for checking and are NOT created
+during checking.
+
+The files can be created as follows (the pretty-printer is a part
+of the cpp2sir package).
+
+    $ cpp2sir -j foo.cpp > foo.sir
+    $ python pretty-print.py < foo.sir > foo.txt
+
+The alloc_merged.sir was created by merging alloc.sir and alloc_deleter.sir.
+
+    $ python merge.py alloc.sir alloc_deleter.sir > alloc_merged.sir
