@@ -1,0 +1,634 @@
+{
+   "_vfn_map" : {
+      "v:_ZN14discarder_base7discardEPi" : [ "_ZN17discarder_correct7discardEPi" ],
+      "v:_ZN17discarder_correct7discardEPi" : [ "_ZN17discarder_correct7discardEPi" ]
+   },
+   "_vfn_param_counts" : {
+      "v:_ZN14discarder_base7discardEPi" : 2,
+      "v:_ZN17discarder_correct7discardEPi" : 2
+   },
+   "aliases" : {
+      "_Z12discard_dataPi" : [ "discard_data" ],
+      "_Z12process_datai" : [ "process_data" ],
+      "_Z2f1v" : [ "f1" ],
+      "_Z2f2v" : [ "f2" ],
+      "_Z2f3v" : [ "f3" ],
+      "_Z2f4v" : [ "f4" ],
+      "_Z2f5R14discarder_base" : [ "f5" ],
+      "_ZN14discarder_base7discardEPi" : [ "discarder_base::discard" ],
+      "_ZN14discarder_baseD1Ev" : [ "discarder_base::~discarder_base" ],
+      "_ZN14discarder_baseaSERKS_" : [ "discarder_base::operator=" ],
+      "_ZN17discarder_correct7discardEPi" : [ "discarder_correct::discard" ],
+      "_ZN17discarder_correctD1Ev" : [ "discarder_correct::~discarder_correct" ],
+      "_ZN17discarder_correctaSERKS_" : [ "discarder_correct::operator=" ],
+      "_ZdaPv" : [ "operator delete[]" ],
+      "_ZdlPv" : [ "operator delete" ],
+      "_Znaj" : [ "operator new[]" ],
+      "_Znwj" : [ "operator new" ]
+   },
+   "cfgs" : {
+      "_Z12discard_dataPi" : {
+         "entry" : 1,
+         "locals" : [],
+         "nodes" : [
+            [
+               "exit",
+               [],
+               [
+                  [ "const", 0 ],
+                  [ "const", 1 ]
+               ],
+               [ 0 ]
+            ],
+            [
+               "call",
+               [
+                  [ 0, 0, null ]
+               ],
+               [
+                  [ "func", "__sir_cpp_delete" ],
+                  [ "var", "p:data" ],
+                  [ "func", "_ZdlPv" ]
+               ],
+               [ 1 ]
+            ]
+         ],
+         "params" : [ "p:data" ],
+         "tags" : [
+            [ "source_range", 0, 31, 1, 31, 1 ],
+            [ "source_range", 0, 29, 5, 29, 12 ]
+         ]
+      },
+      "_Z2f1v" : {
+         "entry" : 3,
+         "locals" : [ "l:data:0" ],
+         "nodes" : [
+            [
+               "exit",
+               [],
+               [
+                  [ "const", 0 ]
+               ],
+               [ 0 ]
+            ],
+            [
+               "assign",
+               [
+                  [ 0, 0, null ]
+               ],
+               [
+                  [ "varptr", "l:data:0" ],
+                  [ "node", 3 ]
+               ],
+               [ 1 ]
+            ],
+            [
+               "exit",
+               [],
+               [
+                  [ "const", 1 ]
+               ],
+               [ 0 ]
+            ],
+            [
+               "call",
+               [
+                  [ 4, 0, null ],
+                  [ 2, 1, null ]
+               ],
+               [
+                  [ "func", "_Znwj" ],
+                  [ "const", 4 ]
+               ],
+               [ 1 ]
+            ],
+            [
+               "assign",
+               [
+                  [ 1, 0, null ]
+               ],
+               [
+                  [ "node", 3 ],
+                  [ "const", 42 ]
+               ],
+               [ 1 ]
+            ]
+         ],
+         "params" : [],
+         "tags" : [
+            [ "source_range", 0, 23, 1, 23, 1 ],
+            [ "source_range", 0, 21, 18, 21, 28 ]
+         ]
+      },
+      "_Z2f2v" : {
+         "entry" : 6,
+         "locals" : [ "l:data:0" ],
+         "nodes" : [
+            [
+               "phi",
+               [
+                  [ 7, 0, null ]
+               ],
+               [
+                  [ "node", 9 ],
+                  [ "node", 1 ]
+               ]
+            ],
+            [
+               "call",
+               [
+                  [ 0, 0, null ],
+                  [ 4, 1, null ]
+               ],
+               [
+                  [ "func", "_Z12discard_dataPi" ],
+                  [ "var", "l:data:0" ]
+               ],
+               [ 0 ]
+            ],
+            [
+               "not",
+               [
+                  [ 9, 0, null ],
+                  [ 1, 0, 0 ]
+               ],
+               [
+                  [ "node", 8 ]
+               ],
+               [ 1 ]
+            ],
+            [
+               "deref",
+               [
+                  [ 8, 0, null ]
+               ],
+               [
+                  [ "var", "l:data:0" ]
+               ]
+            ],
+            [
+               "exit",
+               [],
+               [
+                  [ "const", 1 ]
+               ],
+               [ 2 ]
+            ],
+            [
+               "assign",
+               [
+                  [ 10, 0, null ]
+               ],
+               [
+                  [ "node", 6 ],
+                  [ "const", 42 ]
+               ],
+               [ 3 ]
+            ],
+            [
+               "call",
+               [
+                  [ 5, 0, null ],
+                  [ 4, 1, null ]
+               ],
+               [
+                  [ "func", "_Znwj" ],
+                  [ "const", 4 ]
+               ],
+               [ 3 ]
+            ],
+            [
+               "exit",
+               [],
+               [
+                  [ "const", 0 ],
+                  [ "node", 0 ]
+               ],
+               [ 2 ]
+            ],
+            [
+               "call",
+               [
+                  [ 2, 0, null ],
+                  [ 4, 1, null ]
+               ],
+               [
+                  [ "func", "_Z12process_datai" ],
+                  [ "node", 3 ]
+               ],
+               [ 4 ]
+            ],
+            [
+               "value",
+               [
+                  [ 0, 0, null ]
+               ],
+               [
+                  [ "const", 0 ]
+               ]
+            ],
+            [
+               "assign",
+               [
+                  [ 3, 0, null ]
+               ],
+               [
+                  [ "varptr", "l:data:0" ],
+                  [ "node", 6 ]
+               ],
+               [ 3 ]
+            ]
+         ],
+         "params" : [],
+         "tags" : [
+            [ "source_range", 0, 42, 12, 42, 29 ],
+            [ "source_range", 0, 40, 9, 40, 28 ],
+            [ "source_range", 0, 43, 1, 43, 1 ],
+            [ "source_range", 0, 39, 18, 39, 28 ],
+            [ "source_range", 0, 40, 10, 40, 28 ]
+         ]
+      },
+      "_Z2f3v" : {
+         "entry" : 3,
+         "locals" : [ "l:data:0" ],
+         "nodes" : [
+            [
+               "exit",
+               [],
+               [
+                  [ "const", 1 ]
+               ],
+               [ 0 ]
+            ],
+            [
+               "assign",
+               [
+                  [ 2, 0, null ]
+               ],
+               [
+                  [ "varptr", "l:data:0" ],
+                  [ "node", 3 ]
+               ],
+               [ 1 ]
+            ],
+            [
+               "deref",
+               [
+                  [ 5, 0, null ]
+               ],
+               [
+                  [ "var", "l:data:0" ]
+               ]
+            ],
+            [
+               "call",
+               [
+                  [ 8, 0, null ],
+                  [ 0, 1, null ]
+               ],
+               [
+                  [ "func", "_Znwj" ],
+                  [ "const", 4 ]
+               ],
+               [ 1 ]
+            ],
+            [
+               "phi",
+               [
+                  [ 6, 0, null ]
+               ],
+               [
+                  [ "node", 7 ],
+                  [ "node", 5 ]
+               ],
+               [ 2 ]
+            ],
+            [
+               "call",
+               [
+                  [ 4, 0, 0 ],
+                  [ 0, 1, null ],
+                  [ 7, 0, null ]
+               ],
+               [
+                  [ "func", "_Z12process_datai" ],
+                  [ "node", 2 ]
+               ],
+               [ 3 ]
+            ],
+            [
+               "exit",
+               [],
+               [
+                  [ "const", 0 ],
+                  [ "node", 4 ]
+               ],
+               [ 0 ]
+            ],
+            [
+               "call",
+               [
+                  [ 4, 0, null ],
+                  [ 0, 1, null ]
+               ],
+               [
+                  [ "func", "_Z12discard_dataPi" ],
+                  [ "var", "l:data:0" ]
+               ],
+               [ 4 ]
+            ],
+            [
+               "assign",
+               [
+                  [ 1, 0, null ]
+               ],
+               [
+                  [ "node", 3 ],
+                  [ "const", 42 ]
+               ],
+               [ 1 ]
+            ]
+         ],
+         "params" : [],
+         "tags" : [
+            [ "source_range", 0, 55, 1, 55, 1 ],
+            [ "source_range", 0, 53, 18, 53, 28 ],
+            [ "source_range", 0, 54, 12, 54, 52 ],
+            [ "source_range", 0, 54, 12, 54, 30 ],
+            [ "source_range", 0, 54, 35, 54, 52 ]
+         ]
+      },
+      "_Z2f4v" : {
+         "entry" : 6,
+         "locals" : [ "l:data:0", "l:success:0" ],
+         "nodes" : [
+            [
+               "assign",
+               [
+                  [ 9, 0, null ]
+               ],
+               [
+                  [ "varptr", "l:data:0" ],
+                  [ "node", 6 ]
+               ],
+               [ 0 ]
+            ],
+            [
+               "exit",
+               [],
+               [
+                  [ "const", 0 ],
+                  [ "node", 8 ]
+               ],
+               [ 1 ]
+            ],
+            [
+               "value",
+               [
+                  [ 8, 0, null ]
+               ],
+               [
+                  [ "var", "l:success:0" ]
+               ]
+            ],
+            [
+               "assign",
+               [
+                  [ 0, 0, null ]
+               ],
+               [
+                  [ "node", 6 ],
+                  [ "const", 42 ]
+               ],
+               [ 0 ]
+            ],
+            [
+               "exit",
+               [],
+               [
+                  [ "const", 1 ]
+               ],
+               [ 1 ]
+            ],
+            [
+               "call",
+               [
+                  [ 8, 0, 0 ],
+                  [ 4, 1, null ],
+                  [ 2, 0, null ]
+               ],
+               [
+                  [ "func", "_Z12discard_dataPi" ],
+                  [ "var", "l:data:0" ]
+               ],
+               [ 2 ]
+            ],
+            [
+               "call",
+               [
+                  [ 3, 0, null ],
+                  [ 4, 1, null ]
+               ],
+               [
+                  [ "func", "_Znwj" ],
+                  [ "const", 4 ]
+               ],
+               [ 0 ]
+            ],
+            [
+               "call",
+               [
+                  [ 10, 0, null ],
+                  [ 4, 1, null ]
+               ],
+               [
+                  [ "func", "_Z12process_datai" ],
+                  [ "node", 9 ]
+               ],
+               [ 3 ]
+            ],
+            [
+               "phi",
+               [
+                  [ 1, 0, null ]
+               ],
+               [
+                  [ "node", 2 ],
+                  [ "node", 5 ]
+               ],
+               [ 4 ]
+            ],
+            [
+               "deref",
+               [
+                  [ 7, 0, null ]
+               ],
+               [
+                  [ "var", "l:data:0" ]
+               ]
+            ],
+            [
+               "assign",
+               [
+                  [ 5, 0, null ]
+               ],
+               [
+                  [ "varptr", "l:success:0" ],
+                  [ "node", 7 ]
+               ],
+               [ 3 ]
+            ]
+         ],
+         "params" : [],
+         "tags" : [
+            [ "source_range", 0, 63, 18, 63, 28 ],
+            [ "source_range", 0, 66, 1, 66, 1 ],
+            [ "source_range", 0, 65, 12, 65, 29 ],
+            [ "source_range", 0, 64, 20, 64, 38 ],
+            [ "source_range", 0, 65, 12, 65, 34 ]
+         ]
+      },
+      "_Z2f5R14discarder_base" : {
+         "entry" : 4,
+         "locals" : [ "l:data:0", "l:success:0" ],
+         "nodes" : [
+            [
+               "exit",
+               [],
+               [
+                  [ "const", 1 ]
+               ],
+               [ 0 ]
+            ],
+            [
+               "assign",
+               [
+                  [ 6, 0, null ]
+               ],
+               [
+                  [ "node", 4 ],
+                  [ "const", 42 ]
+               ],
+               [ 1 ]
+            ],
+            [
+               "call",
+               [
+                  [ 7, 0, null ],
+                  [ 0, 1, null ]
+               ],
+               [
+                  [ "func", "_Z12process_datai" ],
+                  [ "node", 8 ]
+               ],
+               [ 2 ]
+            ],
+            [
+               "call",
+               [
+                  [ 5, 0, null ],
+                  [ 0, 1, null ]
+               ],
+               [
+                  [ "func", "v:_ZN14discarder_base7discardEPi" ],
+                  [ "var", "p:d" ],
+                  [ "var", "l:data:0" ]
+               ],
+               [ 3 ]
+            ],
+            [
+               "call",
+               [
+                  [ 1, 0, null ],
+                  [ 0, 1, null ]
+               ],
+               [
+                  [ "func", "_Znwj" ],
+                  [ "const", 4 ]
+               ],
+               [ 1 ]
+            ],
+            [
+               "exit",
+               [],
+               [
+                  [ "const", 0 ],
+                  [ "var", "l:success:0" ]
+               ],
+               [ 0 ]
+            ],
+            [
+               "assign",
+               [
+                  [ 8, 0, null ]
+               ],
+               [
+                  [ "varptr", "l:data:0" ],
+                  [ "node", 4 ]
+               ],
+               [ 1 ]
+            ],
+            [
+               "assign",
+               [
+                  [ 3, 0, null ]
+               ],
+               [
+                  [ "varptr", "l:success:0" ],
+                  [ "node", 2 ]
+               ],
+               [ 2 ]
+            ],
+            [
+               "deref",
+               [
+                  [ 2, 0, null ]
+               ],
+               [
+                  [ "var", "l:data:0" ]
+               ]
+            ]
+         ],
+         "params" : [ "p:d" ],
+         "tags" : [
+            [ "source_range", 0, 96, 1, 96, 1 ],
+            [ "source_range", 0, 92, 18, 92, 28 ],
+            [ "source_range", 0, 93, 20, 93, 38 ],
+            [ "source_range", 0, 94, 5, 94, 19 ]
+         ]
+      },
+      "_ZN17discarder_correct7discardEPi" : {
+         "entry" : 0,
+         "locals" : [],
+         "nodes" : [
+            [
+               "call",
+               [
+                  [ 1, 0, null ]
+               ],
+               [
+                  [ "func", "__sir_cpp_delete" ],
+                  [ "var", "p:data" ],
+                  [ "func", "_ZdlPv" ]
+               ],
+               [ 0 ]
+            ],
+            [
+               "exit",
+               [],
+               [
+                  [ "const", 0 ]
+               ],
+               [ 1 ]
+            ]
+         ],
+         "params" : [ "p:this", "p:data" ],
+         "tags" : [
+            [ "source_range", 0, 78, 9, 78, 16 ],
+            [ "source_range", 0, 79, 5, 79, 5 ]
+         ]
+      }
+   },
+   "filenames" : [ "alloc.cpp" ],
+   "globals" : {}
+}

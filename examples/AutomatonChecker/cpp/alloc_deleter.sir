@@ -1,0 +1,57 @@
+{
+   "_vfn_map" : {
+      "v:_ZN14discarder_base7discardEPi" : [ "_ZN16discarder_faulty7discardEPi" ],
+      "v:_ZN16discarder_faulty7discardEPi" : [ "_ZN16discarder_faulty7discardEPi" ]
+   },
+   "_vfn_param_counts" : {
+      "v:_ZN14discarder_base7discardEPi" : 2,
+      "v:_ZN16discarder_faulty7discardEPi" : 2
+   },
+   "aliases" : {
+      "_ZN14discarder_base7discardEPi" : [ "discarder_base::discard" ],
+      "_ZN14discarder_baseD1Ev" : [ "discarder_base::~discarder_base" ],
+      "_ZN14discarder_baseaSERKS_" : [ "discarder_base::operator=" ],
+      "_ZN16discarder_faulty7discardEPi" : [ "discarder_faulty::discard" ],
+      "_ZN16discarder_faultyD1Ev" : [ "discarder_faulty::~discarder_faulty" ],
+      "_ZN16discarder_faultyaSERKS_" : [ "discarder_faulty::operator=" ],
+      "_ZdaPv" : [ "operator delete[]" ],
+      "_ZdlPv" : [ "operator delete" ],
+      "_Znaj" : [ "operator new[]" ],
+      "_Znwj" : [ "operator new" ]
+   },
+   "cfgs" : {
+      "_ZN16discarder_faulty7discardEPi" : {
+         "entry" : 0,
+         "locals" : [],
+         "nodes" : [
+            [
+               "call",
+               [
+                  [ 1, 0, null ]
+               ],
+               [
+                  [ "func", "__sir_cpp_delete_array" ],
+                  [ "var", "p:data" ],
+                  [ "func", "_ZdaPv" ]
+               ],
+               [ 0 ]
+            ],
+            [
+               "exit",
+               [],
+               [
+                  [ "const", 0 ]
+               ],
+               [ 1 ]
+            ]
+         ],
+         "params" : [ "p:this", "p:data" ],
+         "tags" : [
+            [ "source_range", 0, 17, 9, 17, 18 ],
+            [ "source_range", 0, 18, 5, 18, 5 ]
+         ]
+      }
+   },
+   "filenames" : [ "alloc_deleter.cpp" ],
+   "globals" : {}
+}

@@ -1,0 +1,208 @@
+{
+   "_vfn_map" : {
+      "v:_ZN2s13fooER5mutex" : [ "_ZN2s23fooER5mutex" ],
+      "v:_ZN2s23fooER5mutex" : [ "_ZN2s23fooER5mutex" ]
+   },
+   "_vfn_param_counts" : {
+      "v:_ZN2s13fooER5mutex" : 2,
+      "v:_ZN2s23fooER5mutex" : 2
+   },
+   "aliases" : {
+      "_Z3fooP2s1" : [ "foo" ],
+      "_Z7releaseR5mutex" : [ "release" ],
+      "_ZN2s13fooER5mutex" : [ "s1::foo" ],
+      "_ZN2s1D1Ev" : [ "s1::~s1" ],
+      "_ZN2s1aSERKS_" : [ "s1::operator=" ],
+      "_ZN2s23fooER5mutex" : [ "s2::foo" ],
+      "_ZN2s2D1Ev" : [ "s2::~s2" ],
+      "_ZN2s2aSERKS_" : [ "s2::operator=" ],
+      "_ZN5mutex7acquireEv" : [ "mutex::acquire" ],
+      "_ZN5mutex7releaseEv" : [ "mutex::release" ],
+      "_ZN5mutexC1ERKS_" : [ "mutex::mutex" ],
+      "_ZN5mutexC1Ev" : [ "mutex::mutex" ],
+      "_ZN5mutexD1Ev" : [ "mutex::~mutex" ]
+   },
+   "cfgs" : {
+      "_Z3fooP2s1" : {
+         "entry" : 6,
+         "locals" : [ "l:m:0" ],
+         "nodes" : [
+            [
+               "exit",
+               [],
+               [
+                  [ "const", 1 ]
+               ],
+               [ 0 ]
+            ],
+            [
+               "call",
+               [
+                  [ 2, 0, null ],
+                  [ 4, 1, null ]
+               ],
+               [
+                  [ "func", "_ZN5mutex7acquireEv" ],
+                  [ "varptr", "l:m:0" ]
+               ],
+               [ 1 ]
+            ],
+            [
+               "call",
+               [
+                  [ 3, 0, null ],
+                  [ 4, 1, null ]
+               ],
+               [
+                  [ "func", "v:_ZN2s13fooER5mutex" ],
+                  [ "var", "p:p" ],
+                  [ "varptr", "l:m:0" ]
+               ],
+               [ 2 ]
+            ],
+            [
+               "call",
+               [
+                  [ 5, 0, null ],
+                  [ 4, 1, null ]
+               ],
+               [
+                  [ "func", "_ZN5mutex7releaseEv" ],
+                  [ "varptr", "l:m:0" ]
+               ],
+               [ 3 ]
+            ],
+            [
+               "call",
+               [
+                  [ 0, 0, null ]
+               ],
+               [
+                  [ "func", "_ZN5mutexD1Ev" ],
+                  [ "varptr", "l:m:0" ]
+               ]
+            ],
+            [
+               "call",
+               [
+                  [ 7, 0, null ],
+                  [ 0, 1, null ]
+               ],
+               [
+                  [ "func", "_ZN5mutexD1Ev" ],
+                  [ "varptr", "l:m:0" ]
+               ]
+            ],
+            [
+               "call",
+               [
+                  [ 1, 0, null ],
+                  [ 0, 1, null ]
+               ],
+               [
+                  [ "func", "_ZN5mutexC1Ev" ],
+                  [ "varptr", "l:m:0" ]
+               ],
+               [ 4 ]
+            ],
+            [
+               "exit",
+               [],
+               [
+                  [ "const", 0 ]
+               ],
+               [ 0 ]
+            ]
+         ],
+         "params" : [ "p:p" ],
+         "tags" : [
+            [ "source_range", 1, 22, 1, 22, 1 ],
+            [ "source_range", 1, 19, 5, 19, 15 ],
+            [ "source_range", 1, 20, 5, 20, 13 ],
+            [ "source_range", 1, 21, 5, 21, 15 ],
+            [ "source_range", 1, 18, 11, 18, 11 ]
+         ]
+      },
+      "_Z7releaseR5mutex" : {
+         "entry" : 2,
+         "locals" : [],
+         "nodes" : [
+            [
+               "exit",
+               [],
+               [
+                  [ "const", 0 ],
+                  [ "node", 2 ]
+               ],
+               [ 0 ]
+            ],
+            [
+               "exit",
+               [],
+               [
+                  [ "const", 1 ]
+               ],
+               [ 0 ]
+            ],
+            [
+               "call",
+               [
+                  [ 0, 0, null ],
+                  [ 1, 1, null ]
+               ],
+               [
+                  [ "func", "_ZN5mutex7releaseEv" ],
+                  [ "var", "p:m" ]
+               ],
+               [ 1 ]
+            ]
+         ],
+         "params" : [ "p:m" ],
+         "tags" : [
+            [ "source_range", 0, 15, 1, 15, 1 ],
+            [ "source_range", 0, 14, 12, 14, 22 ]
+         ]
+      },
+      "_ZN2s23fooER5mutex" : {
+         "entry" : 0,
+         "locals" : [],
+         "nodes" : [
+            [
+               "call",
+               [
+                  [ 2, 0, null ],
+                  [ 1, 1, null ]
+               ],
+               [
+                  [ "func", "_ZN5mutex7releaseEv" ],
+                  [ "var", "p:m" ]
+               ],
+               [ 0 ]
+            ],
+            [
+               "exit",
+               [],
+               [
+                  [ "const", 1 ]
+               ],
+               [ 1 ]
+            ],
+            [
+               "exit",
+               [],
+               [
+                  [ "const", 0 ]
+               ],
+               [ 1 ]
+            ]
+         ],
+         "params" : [ "p:this", "p:m" ],
+         "tags" : [
+            [ "source_range", 1, 12, 9, 12, 19 ],
+            [ "source_range", 1, 13, 5, 13, 5 ]
+         ]
+      }
+   },
+   "filenames" : [ "./mutex.h", "virtual.cpp" ],
+   "globals" : {}
+}
