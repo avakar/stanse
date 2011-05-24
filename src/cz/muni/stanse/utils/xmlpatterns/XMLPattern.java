@@ -109,7 +109,16 @@ public final class XMLPattern {
 		continue;
 
 	    if (elem.getName().equals("var")) {
-	        varsAssignment.put(elem.attribute("name").getValue(), op);
+                if (elem.attribute("target") != null) {
+                    if (op.type == CFGNode.OperandType.varptr) {
+                        varsAssignment.put(elem.attribute("target").getValue(),
+                                new CFGNode.Operand(CFGNode.OperandType.varval, op.id));
+                    } else {
+                        return Pair.make(false, null);
+                    }
+                } else {
+                    varsAssignment.put(elem.attribute("name").getValue(), op);
+                }
 	        continue;
 	    }
 
