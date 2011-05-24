@@ -323,6 +323,9 @@ public final class CFGTraversal {
                     callStack.push(edge.getFirst());
                     traverseCFGPathsInterproceduralByEdge(edge,path,
                                   nodeFollowers,visitor,visitedStack,callStack);
+                    callStack.pop();
+                    visitedStack.pop();
+                    visitor.onCFGchange(edge.getSecond(),path.getFirst());
                     return;
                 }
             }
@@ -335,11 +338,14 @@ public final class CFGTraversal {
                                                          callStack.peek());
             if (visitedEdges.contains(edge))
                 return;
-            callStack.pop();
-            visitedStack.pop();
+            CFGNode lastCallStackNode = callStack.pop();
+            HashSet<Pair<CFGNode,CFGNode>> lastVisitedStack = visitedStack.pop();
             visitor.onCFGchange(path.getFirst(),edge.getSecond());
             traverseCFGPathsInterproceduralByEdge(edge,path,nodeFollowers,
                                                 visitor,visitedStack,callStack);
+            visitor.onCFGchange(edge.getSecond(),path.getFirst());
+            visitedStack.push(lastVisitedStack);
+            callStack.push(lastCallStackNode);
             return;
         }
         for (CFGNode currentNodeFollower : nodeFollowers.get(path.getFirst())) {
